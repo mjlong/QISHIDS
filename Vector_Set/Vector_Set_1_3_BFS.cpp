@@ -20,14 +20,15 @@ int main() {
     neighbors[5] = {3, 4};
     neighbors[6] = {1};
 
-    unordered_set<int> visited;
-    queue<int> q;
+    unordered_set<int> visited; //nodes that have been pushed in / poped outof q
+    queue<int> q;  // nodes to be put to stdout
     q.push(0);
     visited.insert(0);
     while(q.size() > 0){
         int cur = q.front();
         cout << cur << endl;
         q.pop();
+        // push neighbors of q.top() into the queue if ...
         for(auto n : neighbors[cur]){
             if(visited.find(n) == visited.end()){
                 q.push(n);
